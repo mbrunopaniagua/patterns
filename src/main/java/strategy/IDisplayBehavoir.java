@@ -1,4 +1,5 @@
 package strategy;
 
-public interface IDesplayBehavoir {
+public interface IDisplayBehavoir {
+	void display();
 }

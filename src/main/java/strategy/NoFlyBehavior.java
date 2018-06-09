@@ -1,4 +1,8 @@
 package strategy;
 
-public class NoFlyBehavior {
+public class NoFlyBehavior implements IFlyBehavior {
+	@Override
+	public void fly() {
+		System.out.println("No fly");
+	}
 }
