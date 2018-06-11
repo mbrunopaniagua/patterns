@@ -9,11 +9,11 @@ public abstract class Duck {
 		this.displayBehavior = displayBehavior;
 	}
 
-	protected void fly() {
+	public void fly() {
 		this.flyBehavior.fly();
 	}
 
-	protected void display() {
+	public void display() {
 		this.displayBehavior.display();
 	}
 }
