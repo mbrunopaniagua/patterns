@@ -1,4 +1,4 @@
-package strategy;
+package strategy.duck;
 
 public abstract class Duck {
 	private final IFlyBehavior flyBehavior;

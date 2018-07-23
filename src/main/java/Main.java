@@ -1,25 +1,28 @@
+import decorator.Component;
+import decorator.ConcreteComponent;
+import decorator.ConcreteDecoratorA;
+import decorator.ConcreteDecoratorB;
+import decorator.Decorator;
 import observer.ConcreteObservable;
 import observer.ConcreteObserver;
-import strategy.CityDuck;
-import strategy.Duck;
-import strategy.MountainDuck;
-import strategy.NoDisplay;
-import strategy.NoFlyBehavior;
-import strategy.SimpleDisplay;
-import strategy.SimpleFlyBehavior;
+import strategy.Context;
+import strategy.Strategy;
+import strategy.StrategyA;
+import strategy.StrategyB;
 
 public class Main {
 	public static void main(String[] args) {
 		/*Strategy*/
 
 		System.out.println("Strategy");
-		Duck mountainDuck = new MountainDuck(new SimpleFlyBehavior(), new NoDisplay());
-		Duck cityDuck = new CityDuck(new NoFlyBehavior(), new SimpleDisplay());
 
-		mountainDuck.fly();
-		mountainDuck.display();
-		cityDuck.fly();
-		cityDuck.display();
+		Strategy strategyA = new StrategyA();
+		Context context = new Context(strategyA);
+		context.doStuff();
+
+		Strategy strategyB = new StrategyB();
+		context.setStrategy(strategyB);
+		context.doStuff();
 		System.out.println("End Strategy");
 
 		/*End Strategy*/
@@ -36,5 +39,16 @@ public class Main {
 		System.out.println("End Observer");
 
 		/*End Observer*/
+
+		/*Decorator*/
+
+		System.out.println("Decorator");
+		Component component = new ConcreteComponent();
+		Decorator concreteDecoratorA = new ConcreteDecoratorA(component);
+		Decorator concreteDecoratorB = new ConcreteDecoratorB(concreteDecoratorA);
+		concreteDecoratorB.operation();
+		System.out.println("Decorator");
+
+		/*End decorator*/
 	}
 }
